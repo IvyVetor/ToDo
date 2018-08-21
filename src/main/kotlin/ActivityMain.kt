@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
                 val response = routingContext.response()
                 response.putHeader("content-type", "text/plain")
                         .setChunked(true)
-                        .write("Hi youtube!\n")
+                        .write("Hello!\n" + "To see your list, go to /list. To add to your list, go to /add/thing you want to add. To remove an item, go to /remove/index of item you want to remove.\n Cheers!\n\n")
                         .end("Ended")
             })
 
@@ -31,8 +31,8 @@ fun main(args: Array<String>) {
                 val response = routingContext.response()
                 response.putHeader("content-type", "text/plain")
                         .setChunked(true)
-                        .write("Here's your list! " + mytodo + "")
-                        .end("Ended")
+                        .write("Here's your list!\n ")
+                        .end("" + mytodo + "")
             })
 
     router.get("/add/:thing")
