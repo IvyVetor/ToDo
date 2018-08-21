@@ -25,6 +25,16 @@ fun main(args: Array<String>) {
                         .end("Ended")
             })
 
+    router.get("/list")
+            .handler({
+                routingContext ->
+                val response = routingContext.response()
+                response.putHeader("content-type", "text/plain")
+                        .setChunked(true)
+                        .write("Here's your list! " + mytodo + "")
+                        .end("Ended")
+            })
+
     router.get("/add/:thing")
             .handler({
                 routingContext ->
