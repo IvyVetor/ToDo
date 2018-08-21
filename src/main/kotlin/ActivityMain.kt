@@ -65,10 +65,10 @@ fun main(args: Array<String>) {
                         .write(Json.encodePrettily(DifferentResponseObj("Hello, you have removed item at index " + index + " from your todo list: " + mytodo)))
                         .end()
             })
-
+    var myPort: String = System.getenv("PORT") ?: "8091"
     httpServer
             .requestHandler(router::accept)
-            .listen(System.getenv("PORT").toInt())
+            .listen(myPort.toInt())
 }
 
 
